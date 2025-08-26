@@ -1,22 +1,26 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class MainController {
     FileHandler fileHandler;
     TFCalculator tffCalculator;
-    ArrayList<String> paths = new ArrayList<String>();
+    IDFCalculator idfCalculator;
+    Map<String, String> documentsInfo = new HashMap<>();
 
     public MainController() {
         this.fileHandler = new FileHandler();
         this.tffCalculator = new TFCalculator();
+        this.idfCalculator = new IDFCalculator();
     }
 
     public void run() {
         getPaths("documents");
-        for (String path : paths) {
-            ArrayList<String> allWords = fileHandler.readFile(path);
+        for (Map.Entry<String, String > document: documentsInfo.entrySet()) {
+            ArrayList<String> allWords = fileHandler.readFile(document.getValue());
             Map<String, Double> tfWords = tffCalculator.calculateWordTF(allWords);
+            //idfCalculator.calculateIDF(tfWords);
             for (Map.Entry<String, Double> val : tfWords.entrySet()) {
                 System.out.println("Element " + val.getKey() + " - "
                         + "TF:"
@@ -30,7 +34,7 @@ public class MainController {
         File[] contents = directory.listFiles();
         if (contents != null) {
             for (File f : contents) {
-                paths.add(f.getAbsolutePath());
+                documentsInfo.put(f.getName(), f.getAbsolutePath());
             }
         }
     }
