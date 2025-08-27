@@ -17,15 +17,16 @@ public class MainController {
 
     public void run() {
         getPaths("documents");
+        idfCalculator.setTotalDocuments(documentsInfo.size());
         for (Map.Entry<String, String > document: documentsInfo.entrySet()) {
             ArrayList<String> allWords = fileHandler.readFile(document.getValue());
             Map<String, Double> tfWords = tffCalculator.calculateWordTF(allWords);
-            //idfCalculator.calculateIDF(tfWords);
-            for (Map.Entry<String, Double> val : tfWords.entrySet()) {
-                System.out.println("Element " + val.getKey() + " - "
-                        + "TF:"
-                        + val.getValue());
-            }
+            idfCalculator.checkWordInDocument(tfWords, document.getKey());
+            //for (Map.Entry<String, Double> val : tfWords.entrySet()) {
+            //    System.out.println("Element " + val.getKey() + " - "
+            //            + "TF:"
+            //            + val.getValue());
+            //}
         }
     }
 
