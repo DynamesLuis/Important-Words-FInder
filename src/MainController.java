@@ -7,12 +7,15 @@ public class MainController {
     FileHandler fileHandler;
     TFCalculator tffCalculator;
     IDFCalculator idfCalculator;
+    //DocumentIndex documentIndex;
+
     Map<String, String> documentsInfo = new HashMap<>();
 
     public MainController() {
         this.fileHandler = new FileHandler();
         this.tffCalculator = new TFCalculator();
         this.idfCalculator = new IDFCalculator();
+     //   this.documentIndex = new DocumentIndex();
     }
 
     public void run() {
@@ -27,6 +30,15 @@ public class MainController {
             //            + "TF:"
             //            + val.getValue());
             //}
+        }
+
+        Map<String, ArrayList<String>> wordInDocumentCount = idfCalculator.getWordsInfo();
+        //wordInDocumentCount.forEach((word, documents) -> {
+        //    System.out.println(word + " → " + documents);
+        //});
+        System.out.println(idfCalculator.getTotalDocuments());
+        for (Map.Entry<String, ArrayList<String>> wordInfo: wordInDocumentCount.entrySet()) {
+            idfCalculator.calculateIDF(wordInfo.getKey(), wordInfo.getValue());
         }
     }
 
