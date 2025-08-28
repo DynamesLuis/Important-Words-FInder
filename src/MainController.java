@@ -7,15 +7,16 @@ public class MainController {
     FileHandler fileHandler;
     TFCalculator tffCalculator;
     IDFCalculator idfCalculator;
-    //DocumentIndex documentIndex;
-
+    DocumentIndex documentIndex;
+    TFIDFcalculator tfidFcalculator;
     Map<String, String> documentsInfo = new HashMap<>();
 
     public MainController() {
         this.fileHandler = new FileHandler();
         this.tffCalculator = new TFCalculator();
         this.idfCalculator = new IDFCalculator();
-     //   this.documentIndex = new DocumentIndex();
+        this.documentIndex = new DocumentIndex();
+        this.tfidFcalculator = new TFIDFcalculator();
     }
 
     public void run() {
@@ -24,6 +25,7 @@ public class MainController {
         for (Map.Entry<String, String > document: documentsInfo.entrySet()) {
             ArrayList<String> allWords = fileHandler.readFile(document.getValue());
             Map<String, Double> tfWords = tffCalculator.calculateWordTF(allWords);
+            documentIndex.addDocument(document.getKey(), tfWords);
             idfCalculator.checkWordInDocument(tfWords, document.getKey());
             //for (Map.Entry<String, Double> val : tfWords.entrySet()) {
             //    System.out.println("Element " + val.getKey() + " - "
@@ -36,10 +38,14 @@ public class MainController {
         //wordInDocumentCount.forEach((word, documents) -> {
         //    System.out.println(word + " → " + documents);
         //});
-        System.out.println(idfCalculator.getTotalDocuments());
+        //System.out.println(idfCalculator.getTotalDocuments());
+        //documentIndex.showDocumentIndexes();
         for (Map.Entry<String, ArrayList<String>> wordInfo: wordInDocumentCount.entrySet()) {
             idfCalculator.calculateIDF(wordInfo.getKey(), wordInfo.getValue());
         }
+
+        tfidFcalculator.calculateTFIDF(idfCalculator.getWordsIDF(), documentIndex.getDocumentsIndex());
+        tfidFcalculator.showTFIDF();
     }
 
     public void getPaths(String folder) {

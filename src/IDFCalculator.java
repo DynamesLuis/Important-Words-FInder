@@ -4,12 +4,14 @@ import java.util.Map;
 
 public class IDFCalculator {
     Map<String, ArrayList<String>> wordsInfo = new HashMap<>();
+    Map<String, Double> wordsIDF = new HashMap<>();
     private int totalDocuments;
 
 
     public void calculateIDF(String word, ArrayList<String> documents) {
         double idf = Math.log10((double) totalDocuments / documents.size());
-        System.out.println(word + ": " + idf + ", " + documents.size());
+        wordsIDF.put(word, idf);
+        //System.out.println(word + ": " + idf + ", " + documents.size());
     }
 
     public void checkWordInDocument(Map<String, Double> words, String documentName) {
@@ -32,5 +34,9 @@ public class IDFCalculator {
 
     public int getTotalDocuments() {
         return totalDocuments;
+    }
+
+    public Map<String, Double> getWordsIDF() {
+        return wordsIDF;
     }
 }
