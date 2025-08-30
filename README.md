@@ -23,7 +23,7 @@ TF-IDF scores words based on how frequently they appear in a document relative t
 
 ### Steps
 1. Clone this repository
-3. Add documents with text to the folder 2documents"
+3. Add documents with text to the folder "documents"
 3. Compile and run the project:
   javac Main.java
   java Main
