@@ -43,6 +43,10 @@ public class TFIDFcalculator {
         }
     }
 
+    public Map<String, Map<String, Double>> getTFIDFs() {
+        return allTFIDF;
+    }
+
     private <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
         List<Map.Entry<K, V>> list = new ArrayList<>(map.entrySet());
         list.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));

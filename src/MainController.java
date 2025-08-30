@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,8 +47,13 @@ public class MainController {
 
         tfidFcalculator.calculateTFIDF(idfCalculator.getWordsIDF(), documentIndex.getDocumentsIndex());
         tfidFcalculator.sortTFIDF();
-        tfidFcalculator.showTFIDF();
-
+        Map<String, Map<String, Double>> sortedTFIDF = tfidFcalculator.getTFIDFs();
+        //tfidFcalculator.showTFIDF();
+        try {
+            fileHandler.writeFile(sortedTFIDF);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void getPaths(String folder) {
