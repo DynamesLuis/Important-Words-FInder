@@ -45,7 +45,9 @@ public class MainController {
         }
 
         tfidFcalculator.calculateTFIDF(idfCalculator.getWordsIDF(), documentIndex.getDocumentsIndex());
+        tfidFcalculator.sortTFIDF();
         tfidFcalculator.showTFIDF();
+
     }
 
     public void getPaths(String folder) {
