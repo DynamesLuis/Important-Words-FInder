@@ -1,4 +1,4 @@
-# 📌 Project Name
+# 📌 Important Words Finder Using TF-IDF
 This project identifies the most important words in a text using the **TF-IDF** (Term Frequency-Inverse Document Frequency) statistical measure.  
 TF-IDF scores words based on how frequently they appear in a document relative to other documents, helping to highlight the most relevant terms in a collection of texts.
 
