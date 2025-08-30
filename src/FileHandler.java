@@ -30,11 +30,14 @@ public class FileHandler {
                 Map<String, Double> innerMap = outerEntry.getValue();
                 writer.write("Document: " + document);
                 writer.newLine();
+                int count = 0;
                 for (Map.Entry<String, Double> wordTFIDF : innerMap.entrySet()) {
+                    if (count >= 3) break;
                     String word = wordTFIDF.getKey();
                     Double tfidf = wordTFIDF.getValue();
                     writer.write("  " + word + " -> tfidf: " +tfidf);
                     writer.newLine();
+                    count++;
                 }
             }
             writer.close();

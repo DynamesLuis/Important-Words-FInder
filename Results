@@ -1,0 +1,12 @@
+Document: document3
+  revolver -> tfidf: 0.016643764699523108
+  magnum -> tfidf: 0.011095843133015405
+  colt -> tfidf: 0.011095843133015405
+Document: document2
+  genus -> tfidf: 0.027264071698266425
+  longest -> tfidf: 0.013632035849133212
+  (πύθων/πύθωνας) -> tfidf: 0.013632035849133212
+Document: document1
+  california -> tfidf: 0.00782165991343709
+  films -> tfidf: 0.00782165991343709
+  made-for-tv -> tfidf: 0.00782165991343709
