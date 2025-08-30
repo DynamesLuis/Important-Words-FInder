@@ -31,11 +31,18 @@ TF-IDF scores words based on how frequently they appear in a document relative t
 ---
 
 ## 📚 Learnings
-- Exception handling.
-- Reading and writing text files.
+- Exception handling
+- Reading and writing text files
 - Working with Map and HashMap in Java
 
 ---
 
 ## 🔮 Possible Improvements
 - Digging deeper into how TF-IDF libraries process words, for example separating terms like made-for-tv and implement it in my project
+
+---
+
+## 📚 Resources / References
+
+- [Tutorial: Finding Important Words in Text Using TF-IDF (stevenloria.com)](https://stevenloria.com/tf-idf/)
+- [Understanding TF-IDF (Term Frequency-Inverse Document Frequency) (geeksforgeeks)](https://www.geeksforgeeks.org/machine-learning/understanding-tf-idf-term-frequency-inverse-document-frequency/)
