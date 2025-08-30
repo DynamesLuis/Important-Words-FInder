@@ -1,6 +1,6 @@
 # 📌 Project Name
-Important Words in Text Using TF-IDF finder
-This project uses the TF-IDF statistical measure, which is a way to score the importance of words (or “terms”) in a document based on how frequently they appear across multiple documents
+This project identifies the most important words in a text using the **TF-IDF** (Term Frequency-Inverse Document Frequency) statistical measure.  
+TF-IDF scores words based on how frequently they appear in a document relative to other documents, helping to highlight the most relevant terms in a collection of texts.
 
 ---
 
@@ -22,8 +22,7 @@ This project uses the TF-IDF statistical measure, which is a way to score the im
 - Installed Java (version 17 or higher)   
 
 ### Steps
-1. Clone this repository:
-  git clone https://github.com/username/repo-name.git
+1. Clone this repository
 3. Add documents with text to the folder 2documents"
 3. Compile and run the project:
   javac Main.java
@@ -32,9 +31,9 @@ This project uses the TF-IDF statistical measure, which is a way to score the im
 ---
 
 ## 📚 Learnings
--Exception handling.
--Reading and writing text files.
--Working with Map and HashMap in Java
+- Exception handling.
+- Reading and writing text files.
+- Working with Map and HashMap in Java
 
 ---
 
